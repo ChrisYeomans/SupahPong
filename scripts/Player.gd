@@ -12,9 +12,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("p1_up"):
 		position.y -= get_parent().PADDLE_SPEED * delta
-	elif Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("p1_down"):
 		position.y += get_parent().PADDLE_SPEED * delta
 
-	position.y = clamp(position.y, p_height/2, win_height - p_height/2)
+	position.y = clamp(position.y, p_height/2.0, win_height - p_height/2.0)

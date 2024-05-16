@@ -17,6 +17,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if (global.p2_is_cpu):
+		cpu_movement(delta)
+	else:
+		player_movement(delta)
+	
+func cpu_movement(delta):
 	ball_pos = ball.position
 	dist = position.y - ball_pos.y
 	if abs(dist) > get_parent().PADDLE_SPEED * delta:
@@ -24,4 +30,12 @@ func _process(delta):
 	else:
 		move_by = dist
 	position.y -= move_by
-	position.y = clamp(position.y, p_height/2, win_height - p_height/2)
+	position.y = clamp(position.y, p_height/2.0, win_height - p_height/2.0)
+	
+func player_movement(delta):
+	if Input.is_action_pressed("p2_up"):
+		position.y -= get_parent().PADDLE_SPEED * delta
+	elif Input.is_action_pressed("p2_down"):
+		position.y += get_parent().PADDLE_SPEED * delta
+
+	position.y = clamp(position.y, p_height/2.0, win_height - p_height/2.0)

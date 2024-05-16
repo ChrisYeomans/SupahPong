@@ -7,7 +7,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
@@ -20,8 +20,10 @@ func _on_quit_pressed():
 
 
 func _on_player_vs_cpu_pressed():
+	global.p2_is_cpu = true
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 
 func _on_player_vs_player_pressed():
-	pass # Replace with function body.
+	global.p2_is_cpu = false
+	get_tree().change_scene_to_file("res://scenes/game.tscn")

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var player = $"../Player"
-@onready var cpu = $"../CPU"
+@onready var cpu = $"../Player2OrCPU"
 
 var win_size: Vector2
 const START_SPEED: int = 500

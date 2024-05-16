@@ -64,11 +64,11 @@ shape = SubResource("RectangleShape2D_bf85k")
 position = Vector2(576, 676)
 shape = SubResource("RectangleShape2D_4q8me")
 
-[node name="CPU" type="StaticBody2D" parent="."]
+[node name="Player2OrCPU" type="StaticBody2D" parent="."]
 position = Vector2(1082, 324)
 script = ExtResource("4_7ci15")
 
-[node name="ColorRect" type="ColorRect" parent="CPU"]
+[node name="ColorRect" type="ColorRect" parent="Player2OrCPU"]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -78,7 +78,7 @@ offset_bottom = 60.0
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CPU"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2OrCPU"]
 position = Vector2(10, 0)
 shape = SubResource("RectangleShape2D_ds6r4")
 
