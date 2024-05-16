@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfw37amoqnp6k"]
+
+[ext_resource type="Script" path="res://scripts/Menu.gd" id="1_1awgw"]
+[ext_resource type="Texture2D" uid="uid://c5wr8u6k5iql8" path="res://assets/Bg.png" id="2_s5ewn"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_1awgw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 208.0
+offset_right = 463.0
+offset_bottom = 458.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Player Vs CPU" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Player Vs. CPU
+"
+
+[node name="Player Vs Player" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Player Vs. Player"
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_s5ewn")
+offset = Vector2(576, 324)
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Player Vs CPU" to="." method="_on_player_vs_cpu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Player Vs Player" to="." method="_on_player_vs_player_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
