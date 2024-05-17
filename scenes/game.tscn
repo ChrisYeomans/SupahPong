@@ -140,6 +140,18 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="WinnerLabel" type="Label" parent="HUD"]
+visible = false
+offset_left = 261.0
+offset_top = 200.0
+offset_right = 893.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0.678431, 0.690196, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "Player 2 Wins"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BallTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
