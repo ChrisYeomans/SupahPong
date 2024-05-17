@@ -1,20 +1,14 @@
 extends StaticBody2D
 
-@onready var color_rect = $ColorRect
-
-var win_height: int
-var p_height: int
+@onready var player_movement = $PlayerMovement
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	win_height = get_viewport_rect().size.y
-	p_height = color_rect.get_size().y
+	player_movement.is_player = true
+	player_movement.p_height = $ColorRect.get_size().y
+	player_movement.move_up_button = "p1_up"
+	player_movement.move_down_button = "p1_down"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Input.is_action_pressed("p1_up"):
-		position.y -= get_parent().PADDLE_SPEED * delta
-	elif Input.is_action_pressed("p1_down"):
-		position.y += get_parent().PADDLE_SPEED * delta
-
-	position.y = clamp(position.y, p_height/2.0, win_height - p_height/2.0)
+func _process(_delta):
+	pass

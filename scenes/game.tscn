@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://ch6hy4i8qrbvn"]
+[gd_scene load_steps=14 format=3 uid="uid://ch6hy4i8qrbvn"]
 
 [ext_resource type="Texture2D" uid="uid://c5wr8u6k5iql8" path="res://assets/Bg.png" id="1_hu8m7"]
 [ext_resource type="Script" path="res://scripts/Game.gd" id="2_aro7b"]
 [ext_resource type="Script" path="res://scripts/Ball.gd" id="3_vworl"]
 [ext_resource type="Script" path="res://scripts/CPU.gd" id="4_7ci15"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="5_kwly5"]
+[ext_resource type="PackedScene" uid="uid://o3f21qe43x8p" path="res://scenes/player_movement.tscn" id="5_uxfgj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4m2n"]
 size = Vector2(10, 10)
@@ -33,6 +34,7 @@ offset = Vector2(576, 324)
 script = ExtResource("2_aro7b")
 
 [node name="Ball" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(576, 324)
 collision_mask = 3
 script = ExtResource("3_vworl")
@@ -82,6 +84,8 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(10, 0)
 shape = SubResource("RectangleShape2D_ds6r4")
 
+[node name="PlayerMovement" parent="Player2OrCPU" instance=ExtResource("5_uxfgj")]
+
 [node name="Player" type="StaticBody2D" parent="."]
 position = Vector2(50, 324)
 script = ExtResource("5_kwly5")
@@ -99,6 +103,8 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(10, 0)
 shape = SubResource("RectangleShape2D_gsd77")
+
+[node name="PlayerMovement" parent="Player" instance=ExtResource("5_uxfgj")]
 
 [node name="ScoreLeft" type="Area2D" parent="."]
 

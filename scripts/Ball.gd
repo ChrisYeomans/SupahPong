@@ -42,6 +42,6 @@ func new_direction(collider):
 	var dist = ball_y - pad_y
 	var new_dir := Vector2()
 	new_dir.x = (dir.x/abs(dir.x))*-1
-	new_dir.y = (dist/(collider.p_height/2)) * MAX_Y_VECTOR
+	new_dir.y = (dist/(collider.player_movement.p_height/2)) * MAX_Y_VECTOR
 	return new_dir.normalized()
 
