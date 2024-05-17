@@ -8,7 +8,6 @@ extends Sprite2D
 
 var score := [0, 0] # Player, CPU
 const PADDLE_SPEED := 500
-const WINNING_SCORE := 3
 
 func _on_ball_timer_timeout():
 	ball.new_ball()
@@ -26,7 +25,7 @@ func _on_score_right_body_entered(_body):
 		ball_timer.start()
 
 func check_game_over(score, player):
-	if score == WINNING_SCORE:
+	if score == global.winning_score:
 		end_game(player)
 		return true
 	return false

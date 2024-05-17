@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://cimfh10q64xox"]
+
+[ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_wnsyx"]
+[ext_resource type="Texture2D" uid="uid://c5wr8u6k5iql8" path="res://assets/Bg.png" id="2_kw6du"]
+[ext_resource type="Script" path="res://scripts/BGMusicSlider.gd" id="2_ninxt"]
+[ext_resource type="Script" path="res://scripts/WinningScoreSlider.gd" id="3_bd2a4"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wnsyx")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.017
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 101.416
+offset_top = 145.0
+offset_right = -83.0
+offset_bottom = -218.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="BGMusicLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Background Music Volume"
+
+[node name="BGMusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+script = ExtResource("2_ninxt")
+
+[node name="WinningScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Winning Score"
+
+[node name="WinningScoreSlider" type="HSlider" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+tick_count = 10
+ticks_on_borders = true
+script = ExtResource("3_bd2a4")
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_kw6du")
+offset = Vector2(576, 324)
+
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/BGMusicSlider" to="MarginContainer/VBoxContainer/BGMusicSlider" method="release_focus"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/BGMusicSlider" to="MarginContainer/VBoxContainer/BGMusicSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/WinningScoreSlider" to="MarginContainer/VBoxContainer/WinningScoreSlider" method="_on_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
