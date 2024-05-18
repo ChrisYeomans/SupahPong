@@ -5,6 +5,8 @@ extends Sprite2D
 @onready var cpu_score = $HUD/CPUScore
 @onready var ball_timer = $BallTimer
 @onready var winner_label = $HUD/WinnerLabel
+@onready var player_one_wins_sound = $WinSounds/PlayerOneWinsSound
+@onready var player_two_wins_sound = $WinSounds/PlayerTwoWinsSound
 
 var score := [0, 0] # Player, CPU
 const PADDLE_SPEED := 500
@@ -33,6 +35,10 @@ func check_game_over(scr, player):
 func end_game(player):
 	winner_label.text = "%s Wins" % player
 	winner_label.visible = true
+	if player == "Player 1":
+		player_one_wins_sound.play()
+	elif player == "Player 2":
+		player_two_wins_sound.play()
 	await get_tree().create_timer(3.0).timeout
 	winner_label.visible = false
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")

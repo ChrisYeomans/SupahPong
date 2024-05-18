@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ch6hy4i8qrbvn"]
+[gd_scene load_steps=18 format=3 uid="uid://ch6hy4i8qrbvn"]
 
 [ext_resource type="Texture2D" uid="uid://diuq3mgiji50s" path="res://assets/pong_board.png" id="1_onpd3"]
 [ext_resource type="Script" path="res://scripts/Game.gd" id="2_aro7b"]
@@ -7,6 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://b5aw3p5orr5fu" path="res://assets/ball_bounce.mp3" id="4_il82l"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="5_kwly5"]
 [ext_resource type="PackedScene" uid="uid://o3f21qe43x8p" path="res://scenes/player_movement.tscn" id="5_uxfgj"]
+[ext_resource type="Script" path="res://scripts/Quit.gd" id="8_xhbmp"]
+[ext_resource type="AudioStream" uid="uid://oe0mguna6387" path="res://assets/player1wins.mp3" id="9_nlvc1"]
+[ext_resource type="AudioStream" uid="uid://ct51foub8wfn2" path="res://assets/player2wins.mp3" id="10_fwydq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4m2n"]
 size = Vector2(10, 10)
@@ -58,6 +61,7 @@ shape = SubResource("RectangleShape2D_t4m2n")
 
 [node name="CollisionSound" type="AudioStreamPlayer" parent="Ball"]
 stream = ExtResource("4_il82l")
+bus = &"SFX"
 
 [node name="Borders" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -156,10 +160,30 @@ text = "Player 2 Wins"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Quit" type="Button" parent="HUD"]
+offset_left = 521.0
+offset_top = 5.0
+offset_right = 632.0
+offset_bottom = 49.0
+text = "Quit to Menu
+"
+script = ExtResource("8_xhbmp")
+
 [node name="BallTimer" type="Timer" parent="."]
 one_shot = true
 autostart = true
 
+[node name="WinSounds" type="Node" parent="."]
+
+[node name="PlayerOneWinsSound" type="AudioStreamPlayer" parent="WinSounds"]
+stream = ExtResource("9_nlvc1")
+bus = &"SFX"
+
+[node name="PlayerTwoWinsSound" type="AudioStreamPlayer" parent="WinSounds"]
+stream = ExtResource("10_fwydq")
+bus = &"SFX"
+
 [connection signal="body_entered" from="ScoreLeft" to="." method="_on_score_left_body_entered"]
 [connection signal="body_entered" from="ScoreRight" to="." method="_on_score_right_body_entered"]
+[connection signal="pressed" from="HUD/Quit" to="HUD/Quit" method="_on_pressed"]
 [connection signal="timeout" from="BallTimer" to="." method="_on_ball_timer_timeout"]
