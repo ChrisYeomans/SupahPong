@@ -24,8 +24,8 @@ func _on_score_right_body_entered(_body):
 	if !check_game_over(score[0], "Player 1"):
 		ball_timer.start()
 
-func check_game_over(score, player):
-	if score == global.winning_score:
+func check_game_over(scr, player):
+	if scr == global.winning_score:
 		end_game(player)
 		return true
 	return false

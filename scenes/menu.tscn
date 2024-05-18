@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfw37amoqnp6k"]
 
 [ext_resource type="Script" path="res://scripts/Menu.gd" id="1_1awgw"]
-[ext_resource type="Texture2D" uid="uid://c5wr8u6k5iql8" path="res://assets/Bg.png" id="2_s5ewn"]
+[ext_resource type="Texture2D" uid="uid://diuq3mgiji50s" path="res://assets/pong_board.png" id="2_m5e74"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -39,7 +39,7 @@ text = "Quit"
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
-texture = ExtResource("2_s5ewn")
+texture = ExtResource("2_m5e74")
 offset = Vector2(576, 324)
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Player Vs CPU" to="." method="_on_player_vs_cpu_pressed"]

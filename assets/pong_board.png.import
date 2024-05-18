@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5wr8u6k5iql8"
-path="res://.godot/imported/Bg.png-ca5d2210484e197d86a976d02d289bc8.ctex"
+uid="uid://diuq3mgiji50s"
+path="res://.godot/imported/pong_board.png-56336b8d5af3536840d87822340bc7fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Bg.png"
-dest_files=["res://.godot/imported/Bg.png-ca5d2210484e197d86a976d02d289bc8.ctex"]
+source_file="res://assets/pong_board.png"
+dest_files=["res://.godot/imported/pong_board.png-56336b8d5af3536840d87822340bc7fe.ctex"]
 
 [params]
 

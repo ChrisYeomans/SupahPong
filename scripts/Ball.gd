@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var player = $"../Player"
 @onready var cpu = $"../Player2OrCPU"
+@onready var collision_sound = $CollisionSound
 
 var win_size: Vector2
 const START_SPEED: int = 500
@@ -17,6 +18,7 @@ func _physics_process(delta):
 	var collision = move_and_collide(dir * speed * delta)
 	var collider
 	if collision:
+		collision_sound.play()
 		collider = collision.get_collider()
 		if collider == player or collider == cpu:
 			speed += ACCEL

@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://ch6hy4i8qrbvn"]
+[gd_scene load_steps=15 format=3 uid="uid://ch6hy4i8qrbvn"]
 
-[ext_resource type="Texture2D" uid="uid://c5wr8u6k5iql8" path="res://assets/Bg.png" id="1_hu8m7"]
+[ext_resource type="Texture2D" uid="uid://diuq3mgiji50s" path="res://assets/pong_board.png" id="1_onpd3"]
 [ext_resource type="Script" path="res://scripts/Game.gd" id="2_aro7b"]
 [ext_resource type="Script" path="res://scripts/Ball.gd" id="3_vworl"]
 [ext_resource type="Script" path="res://scripts/CPU.gd" id="4_7ci15"]
+[ext_resource type="AudioStream" uid="uid://b5aw3p5orr5fu" path="res://assets/ball_bounce.mp3" id="4_il82l"]
 [ext_resource type="Script" path="res://scripts/Player.gd" id="5_kwly5"]
 [ext_resource type="PackedScene" uid="uid://o3f21qe43x8p" path="res://scenes/player_movement.tscn" id="5_uxfgj"]
 
@@ -29,7 +30,7 @@ size = Vector2(56, 648)
 size = Vector2(56, 648)
 
 [node name="Game" type="Sprite2D"]
-texture = ExtResource("1_hu8m7")
+texture = ExtResource("1_onpd3")
 offset = Vector2(576, 324)
 script = ExtResource("2_aro7b")
 
@@ -54,6 +55,9 @@ grow_vertical = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource("RectangleShape2D_t4m2n")
+
+[node name="CollisionSound" type="AudioStreamPlayer" parent="Ball"]
+stream = ExtResource("4_il82l")
 
 [node name="Borders" type="StaticBody2D" parent="."]
 collision_layer = 2
